@@ -81,8 +81,7 @@ fn Panel(
 const PANEL_TEXTBOX_CLASS: &str = "flex flex-col justify-end items-end origin-bottom-right -translate-x-full sm:translate-x-0 rotate-90 sm:transform sm:rotate-0";
 const PANEL_TEXTBOX_STYLE: &str = "color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding: 10px; background-color: rgba(0, 0, 0, 0.5);";
 
-const PANEL_TITLE_CLASS_SMALL_SCREEN: &str = "sm:hidden origin-right h-12 text-5xl";
-const PANEL_TITLE_CLASS_WIDE_SCREEN: &str = "hidden sm:block h-12 text-5xl indent-3";
+const PANEL_TITLE_CLASS: &str = "h-12 sm:align-bottom text-5xl indent-3";
 
 const PANEL_SUBTITLE_CLASS: &str = "hidden sm:block h-12 text-xl indent-5 align-bottom";
 
@@ -93,13 +92,8 @@ fn TextBox(coming_soon: bool, title: String, subtitle: String) -> impl IntoView 
             <Show when=move || coming_soon>
                 <ComingSoonDiv/>
             </Show>
-            <div id="title" class="sm:align-bottom">
-                <div id="title" class=PANEL_TITLE_CLASS_WIDE_SCREEN>
-                    {title.clone()}
-                </div>
-                <div id="title" class=PANEL_TITLE_CLASS_SMALL_SCREEN>
-                    {title}
-                </div>
+            <div id="title" class=PANEL_TITLE_CLASS>
+                {title.clone()}
             </div>
             <div id="subtitle" class=PANEL_SUBTITLE_CLASS>
                 {subtitle}
