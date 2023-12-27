@@ -37,7 +37,7 @@ fn Panels() -> impl IntoView {
             title: "Work".to_string(),
             subtitle: "I do some real work".to_string(),
             coming_soon: false,
-            gif_url: "https://tenor.com/en-GB/view/spongebob-the-essay-hilarious-haha-gif-3565665".to_string(),
+            gif_url: "".to_string(),
             outline_colour: "outline-blue-800".to_string(),
             link: "https://www.linkedin.com/in/jackspagnoli/".to_string(),
         },
