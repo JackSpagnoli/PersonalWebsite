@@ -50,20 +50,11 @@ fn Panels() -> impl IntoView {
             link: "".to_string(),
         },
     ];
-    view! {
-        <div class="flex flex-row gap-2 justify-center h-full w-full px-2">
-            {panels}
-        </div>
-    }
+    view! { <div class="flex flex-row gap-2 justify-center h-full w-full px-2">{panels}</div> }
 }
 
 const PANEL_OUTER_CLASS: &str = "transition-w duration-300 outline-dashed justify-center w-1/3 hover:outline-3 hover:w-5/6 flex flex-col h-full gap-1";
-const PANEL_INNER_CLASS: &str =
-    "flex flex-col h-full grayscale hover:grayscale-0 background-color:";
-const PANEL_TITLE_CLASS: &str = "h-12 text-5xl indent-3";
-const PANEL_SUBTITLE_CLASS: &str = "h-12 text-xl indent-5";
-const PANEL_TEXTBOX_CLASS: &str = "flex flex-col";
-const PANEL_TEXTBOX_STYLE: &str = "color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  padding: 10px; background-color: rgba(0, 0, 0, 0.5);";
+const PANEL_INNER_CLASS: &str = "flex flex-col h-full grayscale hover:grayscale-0";
 
 #[component]
 fn Panel(
@@ -81,20 +72,48 @@ fn Panel(
         <a class=panel_outer_class href=href>
             <div class=PANEL_INNER_CLASS style=panel_inner_style>
                 <div class="h-full"></div>
-                <div class=PANEL_TEXTBOX_CLASS style=PANEL_TEXTBOX_STYLE>
-                    <Show when=move || coming_soon>
-                        <ComingSoonDiv/>
-                    </Show>
-                    <div id="title" class=PANEL_TITLE_CLASS>{title}</div>
-                    <div id="subtitle" class=PANEL_SUBTITLE_CLASS>{subtitle}</div>
-                </div>
+                <TextBox coming_soon=coming_soon title=title subtitle=subtitle/>
             </div>
         </a>
     }
 }
 
+const PANEL_TEXTBOX_CLASS: &str = "flex flex-col justify-end items-end origin-bottom-right -translate-x-full sm:translate-x-0 rotate-90 sm:transform sm:rotate-0";
+const PANEL_TEXTBOX_STYLE: &str = "color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); padding: 10px; background-color: rgba(0, 0, 0, 0.5);";
+
+const PANEL_TITLE_CLASS_SMALL_SCREEN: &str = "sm:hidden origin-right h-12 text-5xl";
+const PANEL_TITLE_CLASS_WIDE_SCREEN: &str = "hidden sm:block h-12 text-5xl indent-3";
+
+const PANEL_SUBTITLE_CLASS: &str = "hidden sm:block h-12 text-xl indent-5 align-bottom";
+
+#[component]
+fn TextBox(coming_soon: bool, title: String, subtitle: String) -> impl IntoView {
+    view! {
+        <div class=PANEL_TEXTBOX_CLASS style=PANEL_TEXTBOX_STYLE>
+            <Show when=move || coming_soon>
+                <ComingSoonDiv/>
+            </Show>
+            <div id="title" class="sm:align-bottom">
+                <div id="title" class=PANEL_TITLE_CLASS_WIDE_SCREEN>
+                    {title.clone()}
+                </div>
+                <div id="title" class=PANEL_TITLE_CLASS_SMALL_SCREEN>
+                    {title}
+                </div>
+            </div>
+            <div id="subtitle" class=PANEL_SUBTITLE_CLASS>
+                {subtitle}
+            </div>
+        </div>
+    }
+}
+
 #[component]
 fn ComingSoonDiv() -> impl IntoView {
-    view! { <div class="h-12 text-m indent-5">"(Coming when I get around to it)"</div> }
+    view! {
+        <div class="hidden sm:block sm:h-12 text-m indent-5 justify-center align-middle">
+            "(Coming Soon)"
+        </div>
+    }
 }
 
