@@ -4,6 +4,8 @@ Written in Leptos with Tailwind CSS.
 
 ## Development
 
+### Setup
+
 Find install instructions in Makefile.
 
 Set
@@ -35,3 +37,7 @@ and set
   },
   "css.validate": false,
 ```
+
+### Live-Preview
+
+Run `trunk serve --release` for live preview of the website and styling (Thanks to hook in `Trunk.toml`).
