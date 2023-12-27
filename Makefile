@@ -1,6 +1,9 @@
 watch-tailwind:
 	npx tailwindcss -i ./input.css -o ./style/output.css --watch
 
+watch-frontend:
+	trunk serve --release
+
 install: install-cargo install-leptos install-tailwind
 
 install-cargo:
