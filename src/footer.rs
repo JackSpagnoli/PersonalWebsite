@@ -3,7 +3,7 @@ use leptos::{component, view, IntoView};
 #[component]
 pub fn Footer() -> impl IntoView {
     view! {
-        <div class="transition-h duration-300 flex flex-col items-center justify-center h-20 hover:h-32 w-full">
+        <div id="Footer" class="transition-h duration-300 flex flex-col items-center justify-center h-20 hover:h-32 w-full">
             <h1>"This footer exists for pure aesthetic value"</h1>
             <h2>
                 "(And to tell you this website uses "

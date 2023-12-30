@@ -3,7 +3,7 @@ use leptos::{IntoView, component, view};
 #[component]
 pub fn Header() -> impl IntoView {
     view! {
-        <div class="transition-h duration-300 items-center justify-center h-24 hover:h-32 w-full flex flex-row">
+        <div id="Header" class="transition-h duration-300 items-center justify-center h-24 hover:h-32 w-full flex flex-row">
             <div class="w-10"></div>
             <div class="flex flex-row w-1/3">
                 <img
