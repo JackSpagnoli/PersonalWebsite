@@ -576,8 +576,8 @@ video {
   height: 5rem;
 }
 
-.h-24 {
-  height: 6rem;
+.h-32 {
+  height: 8rem;
 }
 
 .h-auto {
@@ -590,10 +590,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-1\/3 {
@@ -666,6 +662,10 @@ video {
   padding-right: 0.5rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .indent-3 {
   text-indent: 0.75rem;
 }
@@ -680,6 +680,11 @@ video {
 
 .align-bottom {
   vertical-align: bottom;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-5xl {
@@ -727,6 +732,10 @@ video {
 
 .hover\:h-32:hover {
   height: 8rem;
+}
+
+.hover\:h-36:hover {
+  height: 9rem;
 }
 
 .hover\:w-20:hover {
