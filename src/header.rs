@@ -19,7 +19,7 @@ pub fn Header() -> impl IntoView {
             </div>
             <div class="w-1/6"/>
             <div class="flex flex-row w-1/3 justify-end">
-                <a href="https://gitea.spagnoli.co.uk/Jack/PersonalWebsite">
+                <a href="https://github.com/JackSpagnoli/PersonalWebsite">
                     <div
                         class="w-16 h-16 rounded-full hover:w-20 hover:h-20 hover:ml-20 transition-h duration-300"
                         style="background-image: url('https://static.wikia.nocookie.net/logopedia/images/8/8f/25231.svg');background-repeat: no-repeat; background-size: cover;"
