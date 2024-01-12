@@ -1,6 +1,10 @@
 watch:
 	trunk serve --release
 
+release:
+	trunk build --release
+	cp -r dist/* /var/www
+
 install: install-cargo install-leptos install-tailwind
 
 install-cargo:
@@ -15,5 +19,4 @@ install-leptos:
 	cargo install leptosfmt
 
 install-tailwind:
-	npm install -D tailwindcss
-	npx tailwindcss init
+	npm install
